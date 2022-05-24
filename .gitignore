@@ -6,3 +6,4 @@ cache
 artifacts
 .history/
 *~
+out/

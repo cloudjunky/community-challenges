@@ -69,7 +69,6 @@ contract AuctionTest is DSTest {
         vm.prank(myAddress);
         AuctionAttack attack = new AuctionAttack{value: 3 ether}(address(auction));
 
-        emit log_named_address("Attack Contract owner", attack._owner());
         emit log_named_address("Token Owner is", mockERC721.ownerOf(0));
         emit log_named_address("Auction address is", address(auction));
         emit log_named_address("Attack address is", address(attack));
@@ -96,7 +95,6 @@ contract AuctionTest is DSTest {
         vm.prank(myAddress);
         attack.collect(0);
         emit log_named_uint("Block timestamp", block.timestamp);
-        emit log_named_uint("Claiming token after a number of blocks", block.timestamp);
         emit log_named_address("Owner of token 0 is", mockERC721.ownerOf(0));
         assertEq(myAddress, mockERC721.ownerOf(0));
     }
